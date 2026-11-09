@@ -1,0 +1,11 @@
+venv/
+__pycache__/
+.venv/
+__pycache__/
+*.pyc
+.env
+.env.*
+!.env.example
+cyberlegal.db
+*.db-journal
+.DS_Store

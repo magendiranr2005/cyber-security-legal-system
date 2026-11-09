@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Incident Report | CyberLegal Assistant</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" />
+  </head>
+  <body class="page-body report-page">
+    <main class="main-panel report-document">
+      {% if report %}
+        <header class="topbar">
+          <div>
+            <p class="eyebrow">CyberLegal Assistant</p>
+            <h1>Cyber Incident Report</h1>
+          </div>
+          <div class="topbar-actions no-print">
+            <button class="secondary-btn" type="button" onclick="window.print()">Print Report</button>
+            <a class="logout-link" href="{{ url_for('my_reports_page') }}">Back to My Reports</a>
+          </div>
+        </header>
+        <section class="panel report-summary">
+          <p><strong>Report ID:</strong> {{ report.report_ref or ('CLR-' ~ report.id) }}</p>
+          <p><strong>Date:</strong> {{ report.created_at }}</p>
+          <p><strong>Category:</strong> {{ report.detected_category }}</p>
+          <p><strong>Related category:</strong> {{ report.related_category or 'Not specified' }}</p>
+          <p><strong>Confidence:</strong> {{ report.confidence }}%</p>
+          <p><strong>System-assessed urgency:</strong> {{ report.urgency or 'LOW' }}</p>
+          <p><strong>Status:</strong> {{ report.status }}</p>
+        </section>
+        <section class="panel">
+          <div class="panel-header"><h3>Original Complaint</h3></div>
+          <p>{{ report.complaint }}</p>
+        </section>
+        {% if report.assessment.summary %}
+          <section class="panel">
+            <div class="panel-header"><h3>Assessment Summary</h3></div>
+            <p>{{ report.assessment.summary }}</p>
+            {% if report.assessment.facts %}
+              <p><strong>Reported facts</strong></p>
+              <ul class="list-box">{% for fact in report.assessment.facts %}<li>{{ fact }}</li>{% endfor %}</ul>
+            {% endif %}
+          </section>
+        {% endif %}
+        <section class="content-grid">
+          <div class="panel">
+            <div class="panel-header"><h3>Detected Indicators</h3></div>
+            <ul class="list-box">{% for item in report.indicators %}<li>{{ item }}</li>{% else %}<li>No indicators recorded.</li>{% endfor %}</ul>
+          </div>
+          <div class="panel">
+            <div class="panel-header"><h3>Recommended Evidence</h3></div>
+            <ul class="list-box">{% for item in report.evidence %}<li>{{ item }}</li>{% else %}<li>No evidence checklist recorded.</li>{% endfor %}</ul>
+          </div>
+        </section>
+        <section class="panel">
+          <div class="panel-header"><h3>Legal Guidance</h3></div>
+          {% set legal = report.legal_guidance %}
+          <p><strong>Relevant guidance:</strong> {{ legal.relevant_indian_law or 'Preliminary guidance only.' }}</p>
+          <p>{{ legal.general_legal_explanation or 'No explanation recorded.' }}</p>
+          <p>No section-specific citation is included because the local dataset does not contain verified statutory mappings. Confirm applicability with a qualified legal professional using current law.</p>
+          <p><strong>Potential consequences:</strong></p>
+          <ul class="list-box">{% for item in legal.potential_consequences or [] %}<li>{{ item }}</li>{% endfor %}</ul>
+        </section>
+        <section class="panel">
+          <div class="panel-header"><h3>Recommended Immediate Actions</h3></div>
+          <ol class="list-box">{% for item in report.next_steps %}<li>{{ item }}</li>{% else %}<li>Preserve evidence and use the appropriate official reporting channel.</li>{% endfor %}</ol>
+          <p class="warning-banner">This report is a preliminary automated assessment and does not constitute legal advice or an official police complaint.</p>
+        </section>
+      {% else %}
+        <section class="panel"><h1>Report not found</h1><a href="{{ url_for('my_reports_page') }}">Return to My Reports</a></section>
+      {% endif %}
+    </main>
+  </body>
+</html>

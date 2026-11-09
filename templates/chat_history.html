@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Chat History | CyberLegal Assistant</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" />
+  </head>
+  <body class="page-body chat-page">
+    <div class="app-shell">
+      <aside class="sidebar">
+        <div class="brand-wrap">
+          <div class="brand-mark">C</div>
+          <div>
+            <p class="eyebrow">Academic Security Tool</p>
+            <h2>CyberLegal Assistant</h2>
+          </div>
+        </div>
+        <nav class="nav-menu">
+          <a class="nav-item" href="{{ url_for('dashboard') }}"><span aria-hidden="true">▦</span>Dashboard</a>
+          <a class="nav-item" href="{{ url_for('incident_report_page') }}"><span aria-hidden="true">＋</span>Incident Report</a>
+          <a class="nav-item" href="{{ url_for('my_reports_page') }}"><span aria-hidden="true">▤</span>My Reports</a>
+          <a class="nav-item" href="{{ url_for('legal_guidance_page') }}"><span aria-hidden="true">§</span>Legal Guidance</a>
+          <a class="nav-item active" href="{{ url_for('chat_history_page') }}"><span aria-hidden="true">◷</span>Chat History</a>
+          <a class="nav-item" href="{{ url_for('safety_help_page') }}"><span aria-hidden="true">⚠</span>Safety &amp; Help</a>
+          <a class="nav-item" href="{{ url_for('profile_page') }}"><span aria-hidden="true">●</span>Profile</a>
+          <a class="nav-item" href="{{ url_for('settings_page') }}"><span aria-hidden="true">⚙</span>Settings</a>
+        </nav>
+      </aside>
+
+      <main class="main-panel">
+        <header class="topbar">
+          <div>
+            <p class="eyebrow">Conversation archive</p>
+            <h1>Chat History</h1>
+          </div>
+          <div class="topbar-actions">
+            <span class="user-chip">{{ username }}</span>
+            <a class="logout-link" href="{{ url_for('logout') }}">Logout</a>
+          </div>
+        </header>
+
+        <section class="panel list-panel">
+          <div class="panel-header"><h3>Saved conversations</h3></div>
+          <form class="search-panel search-box-wrap" method="get" action="{{ url_for('chat_history_page') }}">
+            <label for="historySearch">Search complaints, categories, keywords, titles, or report IDs</label>
+            <input id="historySearch" name="q" type="search" value="{{ search_query }}" placeholder="Try phishing, a complaint phrase, or report ID" />
+            <button class="action-button secondary" type="submit">Search</button>
+            {% if search_query %}
+              <a class="action-button secondary" href="{{ url_for('chat_history_page') }}">Clear search</a>
+            {% endif %}
+          </form>
+          {% if sessions %}
+            <div class="session-list">
+              {% for item in sessions %}
+                <div class="session-card">
+                  <strong>{{ item.title }}</strong>
+                  <p>{{ item.complaint[:180] if item.complaint else 'No complaint recorded' }}{% if item.complaint and item.complaint|length > 180 %}…{% endif %}</p>
+                  <div class="session-meta">
+                    <span>{{ item.detected_category or 'Uncertain' }}</span>
+                    <span>{{ item.assessment_status }}</span>
+                  </div>
+                  <p class="session-keywords">
+                    {% if item.keywords %}Keywords: {{ item.keywords|join(', ') }}{% else %}No assessment keywords yet{% endif %}
+                  </p>
+                  <small>{{ item.updated_at or item.created_at }}</small>
+                  {% if item.report_ref %}
+                    <p>Report: {{ item.report_ref }} (ID {{ item.report_id }})</p>
+                    <a href="{{ url_for('report_page', report_id=item.report_id) }}">View saved report</a>
+                  {% endif %}
+                  <a href="{{ url_for('incident_report_page', session_id=item.session_id) }}">Open conversation</a>
+                </div>
+              {% endfor %}
+            </div>
+          {% else %}
+            <p>{% if search_query %}No conversations matched “{{ search_query }}”.{% else %}No chat sessions yet.{% endif %}</p>
+          {% endif %}
+        </section>
+      </main>
+    </div>
+  </body>
+</html>

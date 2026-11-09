@@ -1,0 +1,372 @@
+{
+  "categories": [
+    {
+      "category": "Financial Cyber Fraud",
+      "description": "Fraudulent financial transactions, unauthorized transfers, deceptive payment requests, or scam-based money loss.",
+      "relevant_indian_law": "Preliminary guidance only. Relevant legal issues may involve digital transaction rules, banking protections, and general criminal laws depending on the facts.",
+      "general_legal_explanation": "Financial cyber fraud usually involves deception, unauthorized transfers, or impersonation used to induce a money loss. The legal analysis depends on the specific payment method, the nature of the fraud, and whether the user’s credentials or device were misused.",
+      "potential_consequences": [
+        "Monetary loss",
+        "Banking account disruption",
+        "Difficulty recovering funds",
+        "Exposure to follow-up financial scams"
+      ],
+      "evidence_recommendations": [
+        "Bank transaction records",
+        "SMS alerts and email communications",
+        "UPI payment details",
+        "Bank statements",
+        "Screenshots of messages or calls",
+        "Call logs or caller information"
+      ],
+      "reporting_guidance": [
+        "Preserve all transaction records and screenshots.",
+        "Contact the relevant bank or payment provider immediately.",
+        "If money was debited or a payment was fraudulently made, report the incident urgently.",
+        "Urgent financial matters may require calling 1930 for immediate assistance where applicable.",
+        "Use the official cybercrime reporting channel available in your location and keep reference numbers."
+      ],
+      "disclaimer": "This information is preliminary educational guidance and is not a substitute for advice from a qualified legal professional."
+    },
+    {
+      "category": "Phishing",
+      "description": "Attempts to trick a user into revealing credentials, OTPs, personal data, or financial information through fake links, emails, or messages.",
+      "relevant_indian_law": "Preliminary guidance only. Relevant legal issues may involve digital fraud and cybercrime provisions depending on the facts and applicable law.",
+      "general_legal_explanation": "Phishing relies on deception. It may involve fake login portals, impersonation of banks or service providers, or link-based fraud designed to steal credentials or data.",
+      "potential_consequences": [
+        "Credential compromise",
+        "Account takeover",
+        "Financial fraud risk",
+        "Personal data exposure"
+      ],
+      "evidence_recommendations": [
+        "Original email or message",
+        "Suspicious URL",
+        "Screenshots of the page",
+        "Browser history",
+        "Security alert screenshots",
+        "Messages from the sender"
+      ],
+      "reporting_guidance": [
+        "Do not click the link again or respond to the sender.",
+        "Secure the affected account and reset credentials.",
+        "Report the suspicious page or message to the relevant service provider.",
+        "Preserve the original message and any screenshots for review."
+      ],
+      "disclaimer": "This information is preliminary educational guidance and is not a substitute for advice from a qualified legal professional."
+    },
+    {
+      "category": "Identity Theft",
+      "description": "Unauthorized use of a person’s identity, personal details, or online profile to impersonate or mislead others.",
+      "relevant_indian_law": "Preliminary guidance only. Identity-based misuse may involve applicable criminal, digital, and privacy laws depending on the facts.",
+      "general_legal_explanation": "Identity theft may involve creating fake accounts, using personal information to gain access to services, or misrepresenting someone else’s identity online. The legal impact depends on whether sensitive data was misused or impersonation caused harm.",
+      "potential_consequences": [
+        "Reputation damage",
+        "Account misuse",
+        "Fraudulent actions in the victim's name",
+        "Financial or personal harm"
+      ],
+      "evidence_recommendations": [
+        "Account details or profile links",
+        "Screenshots of impersonating profiles",
+        "Messages showing misuse",
+        "Notifications of unauthorized activity",
+        "Relevant identity documents or alerts"
+      ],
+      "reporting_guidance": [
+        "Preserve the impersonating profile and communications.",
+        "Report the fake account to the relevant platform.",
+        "Secure affected accounts and review account recovery options.",
+        "Document the timeline of misuse and any losses."
+      ],
+      "disclaimer": "This information is preliminary educational guidance and is not a substitute for advice from a qualified legal professional."
+    },
+    {
+      "category": "Social Media Crime",
+      "description": "Misuse of social media profiles, impersonation, fake accounts, harassment, or fraudulent requests made through platforms such as Instagram, Facebook, or X.",
+      "relevant_indian_law": "Preliminary guidance only. This area may involve platform reporting rules, digital harassment laws, and general criminal provisions depending on the facts.",
+      "general_legal_explanation": "Social media crimes can include impersonation, fake profiles, abusive messages, or attempts to exploit trust. The legal consequences depend on the nature of the conduct, communication content, and resulting harm.",
+      "potential_consequences": [
+        "Reputation damage",
+        "Emotional distress",
+        "Fraudulent outreach to friends or family",
+        "Misrepresentation online"
+      ],
+      "evidence_recommendations": [
+        "Profile URL",
+        "Username or handle",
+        "Screenshots of the profile",
+        "Messages sent through the platform",
+        "Dates and times of interactions",
+        "Reports already made to the platform"
+      ],
+      "reporting_guidance": [
+        "Report the fake profile to the platform immediately.",
+        "Save screenshots and messages before they are removed.",
+        "Warn trusted contacts if the impersonation is affecting them.",
+        "Document the timeline and impact of the impersonation."
+      ],
+      "disclaimer": "This information is preliminary educational guidance and is not a substitute for advice from a qualified legal professional."
+    },
+    {
+      "category": "Unauthorized Account Access",
+      "description": "An account was accessed, logged into, or used without authorization, often involving password compromise, suspicious login activity, or account takeover.",
+      "relevant_indian_law": "Preliminary guidance only. This may involve digital unauthorized access issues and account security protections depending on the platform and circumstances.",
+      "general_legal_explanation": "Unauthorized account access can occur through compromised credentials, phishing, weak passwords, or malicious software. It may lead to data exposure, account misuse, and service disruptions.",
+      "potential_consequences": [
+        "Account takeover",
+        "Data loss or leakage",
+        "Suspension or lockout",
+        "Further fraudulent activity"
+      ],
+      "evidence_recommendations": [
+        "Login alerts",
+        "Device or IP information",
+        "Security settings screenshots",
+        "Password reset emails",
+        "Account activity records"
+      ],
+      "reporting_guidance": [
+        "Reset the password immediately and enable stronger security.",
+        "Review account recovery and recent activity logs.",
+        "Report suspicious access to the platform or service provider.",
+        "Preserve evidence of the unauthorized access and all related alerts."
+      ],
+      "disclaimer": "This information is preliminary educational guidance and is not a substitute for advice from a qualified legal professional."
+    },
+    {
+      "category": "Online Harassment",
+      "description": "Abusive, threatening, intimidating, or repeated harmful communication conducted online.",
+      "relevant_indian_law": "Preliminary guidance only. Legal treatment depends on the messages, threats, and circumstances, and may involve applicable criminal or digital harassment provisions.",
+      "general_legal_explanation": "Online harassment may include repeated abusive messages, threats, public shaming, or intimidation. The seriousness depends on the content of the messages and whether the conduct causes mental harm or safety concerns.",
+      "potential_consequences": [
+        "Emotional distress",
+        "Safety concerns",
+        "Reputation harm",
+        "Escalating threats"
+      ],
+      "evidence_recommendations": [
+        "Screenshots of messages",
+        "Chat logs",
+        "Dates and timestamps",
+        "Platform reports",
+        "Witness accounts or prior records"
+      ],
+      "reporting_guidance": [
+        "Block and restrict the sender where possible.",
+        "Capture screenshots and preserve relevant communications.",
+        "Report the behavior to the platform and, if needed, local authorities.",
+        "Document the pattern and any threats made."
+      ],
+      "disclaimer": "This information is preliminary educational guidance and is not a substitute for advice from a qualified legal professional."
+    },
+    {
+      "category": "Data Theft / Data Exposure",
+      "description": "Leakage, unauthorized disclosure, compromise, or misuse of personal or sensitive data.",
+      "relevant_indian_law": "Preliminary guidance only. Legal analysis may involve data protection, privacy, and digital security rules depending on the facts and the data involved.",
+      "general_legal_explanation": "This category relates to the exposure or theft of personal, financial, or sensitive information. The harm may include misuse of identity, financial fraud, or reputational damage.",
+      "potential_consequences": [
+        "Data misuse",
+        "Privacy invasion",
+        "Identity risk",
+        "Further scams and account compromise"
+      ],
+      "evidence_recommendations": [
+        "Data leak notifications",
+        "Screenshots of exposed information",
+        "Service provider communications",
+        "Files or records that were accessed",
+        "Timeline of disclosure"
+      ],
+      "reporting_guidance": [
+        "Preserve the notice or evidence of the leak.",
+        "Change compromised credentials and review impacted accounts.",
+        "Contact the relevant service provider or platform.",
+        "Monitor for misuse, identity theft, or financial fraud."
+      ],
+      "disclaimer": "This information is preliminary educational guidance and is not a substitute for advice from a qualified legal professional."
+    },
+    {
+      "category": "Cyberstalking",
+      "description": "Persistent online monitoring, following, threatening, or intimidating conduct that causes fear or distress.",
+      "relevant_indian_law": "Preliminary guidance only. Legal issues will depend on the pattern of conduct, threats, and local provisions applicable to stalking and harassment.",
+      "general_legal_explanation": "Cyberstalking involves repeated online conduct intended to monitor, intimidate, or harass a person. It may involve tracking, repeated unwanted contact, or harmful surveillance.",
+      "potential_consequences": [
+        "Fear and intimidation",
+        "Safety risks",
+        "Repeated distress",
+        "Harm to personal life and reputation"
+      ],
+      "evidence_recommendations": [
+        "Screenshots of messages",
+        "Dates and times of contact",
+        "Social media interactions",
+        "Location or tracking evidence",
+        "Any threatening language"
+      ],
+      "reporting_guidance": [
+        "Preserve logs, messages, and screenshots.",
+        "Restrict and block the offender on relevant platforms.",
+        "Report the conduct to the platform and local authorities if threatened or fearful.",
+        "Document any repeated patterns of stalking or monitoring."
+      ],
+      "disclaimer": "This information is preliminary educational guidance and is not a substitute for advice from a qualified legal professional."
+    },
+    {
+      "category": "Online Impersonation",
+      "description": "Pretending to be someone else online to deceive, manipulate, or cause harm to another person or community.",
+      "relevant_indian_law": "Preliminary guidance only. The legal analysis depends on whether the impersonation was used for fraud, harassment, or other unlawful conduct.",
+      "general_legal_explanation": "Online impersonation may involve creating fake profiles, stealing identity attributes, or representing someone else to obtain money, trust, or attention. The seriousness depends on the harm caused and the platform involved.",
+      "potential_consequences": [
+        "Trust exploitation",
+        "Fraudulent requests to contacts",
+        "Reputation damage",
+        "Emotional or financial harm"
+      ],
+      "evidence_recommendations": [
+        "Profile screenshots",
+        "Profile URL or handle",
+        "Messages asking for money or information",
+        "List of affected contacts",
+        "Evidence of impersonation history"
+      ],
+      "reporting_guidance": [
+        "Report the fake profile to the platform immediately.",
+        "Collect evidence before a takedown request is processed.",
+        "Warn contacts if the impersonation affects financial or social trust.",
+        "Document all suspicious requests and outcomes."
+      ],
+      "disclaimer": "This information is preliminary educational guidance and is not a substitute for advice from a qualified legal professional."
+    },
+    {
+      "category": "Malware / Malicious Software",
+      "description": "Malware, trojans, spyware, ransomware, or malicious files that attempt to compromise devices or steal data.",
+      "relevant_indian_law": "Preliminary guidance only. Relevant legal analysis may involve digital security and cybercrime laws depending on the scope of the compromise.",
+      "general_legal_explanation": "Malware may be delivered through malicious attachments, links, downloads, or exploited software. It can steal data, alter device behavior, or act as a gateway for further fraud.",
+      "potential_consequences": [
+        "Device compromise",
+        "Credential theft",
+        "Data loss",
+        "Follow-up fraud or blackmail"
+      ],
+      "evidence_recommendations": [
+        "The suspicious file or attachment",
+        "Download source or URL",
+        "Security alerts or antivirus notices",
+        "Device logs and encrypted file warnings",
+        "Screenshots of suspicious behavior"
+      ],
+      "reporting_guidance": [
+        "Disconnect the device from networks if compromise is suspected.",
+        "Scan the device and isolate suspicious files.",
+        "Review the source of the malicious file or website.",
+        "Report the incident to the relevant service provider or security team."
+      ],
+      "disclaimer": "This information is preliminary educational guidance and is not a substitute for advice from a qualified legal professional."
+    },
+    {
+      "category": "UPI Fraud",
+      "description": "Fraudulent or unauthorized payment activity involving UPI or similar quick-payment methods.",
+      "relevant_indian_law": "Preliminary guidance only. UPI fraud analysis may involve digital transaction rules and general fraud/financial crime issues depending on the facts.",
+      "general_legal_explanation": "UPI fraud can result from fake payment requests, scam calls, malicious links, or misuse of linked payment credentials. The distinction between an unintended payment and a counterfeit or fraudulent transfer is important.",
+      "potential_consequences": [
+        "Direct monetary loss",
+        "Account freeze or payment blockage",
+        "Banking disruption",
+        "Difficulty recovering funds"
+      ],
+      "evidence_recommendations": [
+        "UPI transaction screenshot",
+        "Bank account statements",
+        "Payment request details",
+        "SMS alerts or OTP messages",
+        "Call records or message screenshots"
+      ],
+      "reporting_guidance": [
+        "Preserve UPI transaction screenshots and bank statements.",
+        "Report the transaction to the bank and payment app support.",
+        "If the payment was unauthorized, seek urgent assistance from the relevant banking channel.",
+        "Use official reporting channels and keep transaction references."
+      ],
+      "disclaimer": "This information is preliminary educational guidance and is not a substitute for advice from a qualified legal professional."
+    },
+    {
+      "category": "OTP / Credential Fraud",
+      "description": "Fraud involving stolen OTPs, passwords, or login credentials used to compromise accounts or facilitate unauthorized access.",
+      "relevant_indian_law": "Preliminary guidance only. Relevant legal treatment depends on the misuse, account type, and applicable law.",
+      "general_legal_explanation": "OTP and credential fraud usually involves deception or theft of login information. This type of crime may lead to financial loss, unauthorized account access, and follow-on identity misuse.",
+      "potential_consequences": [
+        "Account takeover",
+        "Fraudulent bank payments",
+        "Identity misuse",
+        "Service compromise"
+      ],
+      "evidence_recommendations": [
+        "OTP screenshots or messages",
+        "Security alerts",
+        "Credentials reset records",
+        "App or banking communications",
+        "Account recovery evidence"
+      ],
+      "reporting_guidance": [
+        "Reset all affected credentials immediately.",
+        "Block the associated account and review security logs.",
+        "Contact the relevant service provider or bank.",
+        "Preserve the message or screenshot used to obtain the OTP or credentials."
+      ],
+      "disclaimer": "This information is preliminary educational guidance and is not a substitute for advice from a qualified legal professional."
+    },
+    {
+      "category": "Cyber Extortion",
+      "description": "Threats or coercive digital demands designed to force payment or other actions under pressure.",
+      "relevant_indian_law": "Preliminary guidance only. Legal treatment depends on the nature of the threat, the evidence, and the applicable law.",
+      "general_legal_explanation": "Cyber extortion may involve threats to expose private data, manipulate victims emotionally, or demand money in exchange for silence or access. These situations often require urgent evidence preservation.",
+      "potential_consequences": [
+        "Financial coercion",
+        "Blackmail risk",
+        "Emotional distress",
+        "Public exposure or identity risk"
+      ],
+      "evidence_recommendations": [
+        "Threatening messages",
+        "Screenshots and timestamps",
+        "Emails or chat logs",
+        "Demand details",
+        "Any proof of attempted coercion"
+      ],
+      "reporting_guidance": [
+        "Do not respond to threats in a way that escalates the risk.",
+        "Preserve all message threads and screenshots.",
+        "Report the matter to the relevant platform and authorities if threatened or coerced.",
+        "Document the timeline of communication and demands."
+      ],
+      "disclaimer": "This information is preliminary educational guidance and is not a substitute for advice from a qualified legal professional."
+    },
+    {
+      "category": "Fake Website / Online Scam",
+      "description": "Deceptive online sites, clone portals, fake stores, or scam pages created to steal credentials, money, or personal information.",
+      "relevant_indian_law": "Preliminary guidance only. Legal analysis depends on the site’s conduct, evidence, and applicable online fraud rules.",
+      "general_legal_explanation": "Fake websites often mimic legitimate services and are used to collect login credentials, payment details, or personal information. They may generate fraudulent payment requests or phishing attempts.",
+      "potential_consequences": [
+        "Credential theft",
+        "Direct payment loss",
+        "Fraudulent data collection",
+        "Repeated scam attempts"
+      ],
+      "evidence_recommendations": [
+        "Website URL",
+        "Screenshots of the page",
+        "Payment request details",
+        "Browser history",
+        "Any communication that led you there"
+      ],
+      "reporting_guidance": [
+        "Do not submit any personal or banking information to the site.",
+        "Preserve screenshots and the full URL.",
+        "Report the site to the relevant platform or service provider.",
+        "Monitor your accounts for unusual activity."
+      ],
+      "disclaimer": "This information is preliminary educational guidance and is not a substitute for advice from a qualified legal professional."
+    }
+  ]
+}

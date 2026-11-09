@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dashboard | CyberLegal Assistant</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" />
+  </head>
+  <body class="page-body dashboard-page">
+    <div class="app-shell">
+      <aside class="sidebar">
+        <div class="brand-wrap">
+          <div class="brand-mark">C</div>
+          <div>
+            <p class="eyebrow">Academic Security Tool</p>
+            <h2>CyberLegal Assistant</h2>
+          </div>
+        </div>
+        <nav class="nav-menu">
+          <a class="nav-item active" href="{{ url_for('dashboard') }}"><span aria-hidden="true">▦</span>Dashboard</a>
+          <a class="nav-item" href="{{ url_for('incident_report_page') }}"><span aria-hidden="true">＋</span>Incident Report</a>
+          <a class="nav-item" href="{{ url_for('my_reports_page') }}"><span aria-hidden="true">▤</span>My Reports</a>
+          <a class="nav-item" href="{{ url_for('legal_guidance_page') }}"><span aria-hidden="true">§</span>Legal Guidance</a>
+          <a class="nav-item" href="{{ url_for('chat_history_page') }}"><span aria-hidden="true">◷</span>Chat History</a>
+          <a class="nav-item" href="{{ url_for('safety_help_page') }}"><span aria-hidden="true">⚠</span>Safety &amp; Help</a>
+          <a class="nav-item" href="{{ url_for('profile_page') }}"><span aria-hidden="true">●</span>Profile</a>
+          <a class="nav-item" href="{{ url_for('settings_page') }}"><span aria-hidden="true">⚙</span>Settings</a>
+        </nav>
+        <div class="sidebar-card">
+          <p class="small-label">Privacy-first incident assessment</p>
+          <p>Do not enter passwords, OTPs, PINs, CVV numbers, banking credentials, or authentication secrets.</p>
+        </div>
+      </aside>
+
+      <main class="main-panel">
+        <header class="topbar">
+          <div>
+            <p class="eyebrow">Intelligent Cyber Crime Identification and Legal Guidance System</p>
+            <h1>Welcome, {{ username }}</h1>
+          </div>
+          <div class="topbar-actions">
+            <span class="user-chip">{{ username }}</span>
+            <a class="logout-link" href="{{ url_for('logout') }}">Logout</a>
+          </div>
+        </header>
+
+        <section class="panel dashboard-hero">
+          <div>
+            <p class="eyebrow">Security overview</p>
+            <h2>Understand an incident before you act.</h2>
+            <p>Describe a suspected cybercrime in plain language. The system classifies the incident, explains the detected indicators, and presents evidence and legal guidance.</p>
+          </div>
+          <a href="{{ url_for('incident_report_page') }}" class="action-button hero-action">Start assessment →</a>
+        </section>
+
+        <section class="stat-grid">
+          <div class="stat-card">
+            <span class="stat-label">Total Reports</span>
+            <strong>{{ stats.total_reports }}</strong>
+          </div>
+          <div class="stat-card">
+            <span class="stat-label">Reports This Month</span>
+            <strong>{{ stats.reports_this_month }}</strong>
+          </div>
+          <div class="stat-card">
+            <span class="stat-label">High Confidence Cases</span>
+            <strong>{{ stats.high_confidence_cases }}</strong>
+          </div>
+          <div class="stat-card">
+            <span class="stat-label">Pending Assessments</span>
+            <strong>{{ stats.pending_assessments }}</strong>
+          </div>
+        </section>
+
+        <section class="content-grid dashboard-grid">
+          <div class="panel">
+            <div class="panel-header">
+              <h3>Recent Incident Reports</h3>
+            </div>
+            {% if recent_reports %}
+              <div class="report-list">
+                {% for report in recent_reports %}
+                  <div class="report-item">
+                    <strong>{{ report.detected_category or 'Uncertain' }}</strong><br />
+                    <span>Confidence: {{ report.confidence or 0 }}%</span><br />
+                    <small>{{ report.created_at or 'Recent report' }}</small>
+                  </div>
+                {% endfor %}
+              </div>
+            {% else %}
+              <p>No reports yet.</p>
+            {% endif %}
+          </div>
+
+          <div class="panel">
+            <div class="panel-header">
+              <h3>Recent Chat Sessions</h3>
+            </div>
+            {% if recent_sessions %}
+              <div class="report-list">
+                {% for session in recent_sessions %}
+                  <div class="report-item">
+                    <strong>{{ session.complaint[:60] if session.complaint else 'New session' }}</strong><br />
+                    <span>{{ session.detected_category or 'Uncertain' }} • {{ session.confidence or 0 }}%</span><br />
+                    <small>{{ session.created_at or 'Recent session' }}</small>
+                  </div>
+                {% endfor %}
+              </div>
+            {% else %}
+              <p>No chat sessions yet.</p>
+            {% endif %}
+          </div>
+        </section>
+
+        <section class="bottom-grid">
+          <div class="panel">
+            <div class="panel-header">
+              <h3>Quick Actions</h3>
+            </div>
+            <div class="quick-actions">
+              <a href="{{ url_for('incident_report_page') }}" class="action-button">Report an Incident</a>
+              <a href="{{ url_for('my_reports_page') }}" class="action-button">View My Reports</a>
+              <a href="{{ url_for('legal_guidance_page') }}" class="action-button"><span aria-hidden="true">§</span>Legal Guidance</a>
+              <a href="{{ url_for('safety_help_page') }}" class="action-button"><span aria-hidden="true">⚠</span>Safety &amp; Help</a>
+              <a href="{{ url_for('chat_history_page') }}" class="action-button"><span aria-hidden="true">◷</span>Chat History</a>
+            </div>
+          </div>
+
+          <div class="panel">
+            <div class="panel-header">
+              <h3>Detected Categories</h3>
+            </div>
+            <div class="category-list">
+              <span class="category-pill">Financial Fraud</span>
+              <span class="category-pill">Phishing</span>
+              <span class="category-pill">Identity Theft</span>
+              <span class="category-pill">Social Media Crime</span>
+              <span class="category-pill">Unauthorized Access</span>
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CyberLegal Assistant | Create User</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" />
+  </head>
+  <body class="login-body">
+    <div class="login-container">
+      <div class="login-card">
+        <div class="login-brand">
+          <div class="login-brand-mark">C</div>
+          <h1>Create User</h1>
+        </div>
+
+        <form method="post" class="login-form">
+          {% if error %}
+            <div class="login-error">{{ error }}</div>
+          {% endif %}
+
+          <label class="login-field">
+            <span>Full name</span>
+            <input type="text" name="full_name" placeholder="Jane Doe" required />
+          </label>
+
+          <label class="login-field">
+            <span>Username</span>
+            <input type="text" name="username" placeholder="jane.doe" required />
+          </label>
+
+          <label class="login-field">
+            <span>Password</span>
+            <input type="password" name="password" placeholder="Enter password" required />
+          </label>
+
+          <label class="login-field">
+            <span>Confirm password</span>
+            <input type="password" name="confirm_password" placeholder="Confirm password" required />
+          </label>
+
+          <button type="submit" class="login-button">Create account</button>
+
+          <div class="auth-links">
+            <span>Already have an account?</span>
+            <a href="{{ url_for('login') }}">Login</a>
+          </div>
+        </form>
+      </div>
+    </div>
+  </body>
+</html>

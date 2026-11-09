@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CyberLegal Assistant</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <aside class="sidebar">
+        <div class="brand-wrap">
+          <div class="brand-mark">C</div>
+          <div>
+            <p class="eyebrow">Academic Security Tool</p>
+            <h2>CyberLegal Assistant</h2>
+          </div>
+        </div>
+
+        <nav class="nav-menu">
+          <a class="nav-item active" href="#overview">Overview</a>
+          <a class="nav-item" href="#incident-report"><span aria-hidden="true">＋</span>Incident Report</a>
+          <a class="nav-item" href="#reports-section"><span aria-hidden="true">▤</span>My Reports</a>
+          <a class="nav-item" href="#legal-guidance-section"><span aria-hidden="true">§</span>Legal Guidance</a>
+          <a class="nav-item" href="#safety-section"><span aria-hidden="true">⚠</span>Safety &amp; Help</a>
+        </nav>
+
+        <div class="sidebar-card">
+          <p class="small-label">Privacy Notice</p>
+          <p>Do not enter passwords, OTPs, PINs, CVV numbers, banking credentials, or authentication secrets.</p>
+        </div>
+      </aside>
+
+      <main class="main-panel">
+        <header class="topbar">
+          <div>
+            <p class="eyebrow">Intelligent Cyber Crime Identification and Legal Guidance System</p>
+            <h1>CyberLegal Assistant</h1>
+          </div>
+          <div class="topbar-actions">
+            <span class="user-chip">Welcome, {{ username or 'Admin' }}</span>
+            <button id="saveReportButton" class="secondary-btn" type="button">Save Report</button>
+            <a class="logout-link" href="{{ url_for('logout') }}">Logout</a>
+          </div>
+        </header>
+
+        <div class="warning-banner">
+          Do not enter passwords, OTPs, PINs, CVV numbers, banking credentials, or authentication secrets.
+        </div>
+
+        <section id="overview" class="stat-grid">
+          <div class="stat-card">
+            <span class="stat-label">Detected Category</span>
+            <strong id="telemetryCategory">Awaiting analysis</strong>
+          </div>
+          <div class="stat-card">
+            <span class="stat-label">Confidence</span>
+            <strong id="telemetryConfidence">0%</strong>
+          </div>
+          <div class="stat-card">
+            <span class="stat-label">Indicators</span>
+            <strong id="telemetryIndicators">None</strong>
+          </div>
+        </section>
+
+        <section class="content-grid">
+          <div id="incident-report" class="panel chat-panel">
+            <div class="panel-header">
+              <h3>Incident report</h3>
+            <button id="newComplaintButton" class="secondary-btn" type="button">New complaint</button>
+          </div>
+            <div id="chatMessages" class="chat-messages">
+              <div class="message assistant">
+                <div class="bubble">
+                  Hello. Describe the cybercrime incident or suspicious online activity you are facing, and I will assess the likely category and guidance.
+                </div>
+              </div>
+            </div>
+
+            <div id="questionArea" class="question-area"></div>
+
+            <form id="chatForm" class="chat-form">
+              <textarea id="chatInput" rows="4" placeholder="Type your complaint here..." maxlength="2500"></textarea>
+              <div class="form-actions">
+                <span id="charCount">0 / 2500</span>
+                <button type="submit" id="sendButton">Analyze incident</button>
+              </div>
+            </form>
+          </div>
+
+          <div class="panel telemetry-panel">
+            <div class="panel-header">
+              <h3>Detection telemetry</h3>
+            </div>
+            <div class="telemetry-list">
+              <div class="metric-row">
+                <span>Category</span>
+                <strong id="categoryValue">--</strong>
+              </div>
+              <div class="metric-row">
+                <span>Confidence (AI estimate)</span>
+                <strong id="confidenceValue">--</strong>
+              </div>
+              <div class="metric-row">
+                <span>Confidence level</span>
+                <strong id="confidenceLevel">--</strong>
+              </div>
+            </div>
+            <div class="indicator-box">
+              <p class="small-label">Detected indicators</p>
+              <ul id="indicatorList" class="indicator-list">
+                <li>No indicators yet</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        <section class="bottom-grid">
+          <div class="panel">
+            <div class="panel-header">
+              <h3>Assessment</h3>
+            </div>
+            <div id="assessmentContent" class="assessment-box">
+              Awaiting an assessment.
+            </div>
+          </div>
+
+          <div id="legal-guidance-section" class="panel">
+            <div class="panel-header">
+              <h3>Legal guidance</h3>
+            </div>
+            <div id="legalGuidance" class="content-box">
+              Legal guidance will appear here after classification.
+            </div>
+          </div>
+
+          <div class="panel">
+            <div class="panel-header">
+              <h3>Evidence guide</h3>
+            </div>
+            <ul id="evidenceGuide" class="list-box">
+              <li>Evidence recommendations will appear here.</li>
+            </ul>
+          </div>
+
+          <div id="reports-section" class="panel">
+            <div class="panel-header">
+              <h3>My Reports</h3>
+            </div>
+            <div id="reportList" class="report-list">
+              No saved reports yet.
+            </div>
+          </div>
+
+          <div id="safety-section" class="panel safety-panel">
+            <div class="panel-header">
+              <h3>Safety &amp; Help</h3>
+            </div>
+            <ul class="list-box">
+              <li>Never share passwords, OTPs, PINs, CVV numbers, or banking credentials.</li>
+              <li>For urgent financial fraud, call 1930 where applicable and contact your bank immediately.</li>
+              <li>Save screenshots, messages, and account alerts before changing or deleting them.</li>
+              <li>Use official service-provider and police cybercrime reporting channels to track the case.</li>
+            </ul>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/app.js') }}"></script>
+  </body>
+</html>

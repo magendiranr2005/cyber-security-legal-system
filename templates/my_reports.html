@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My Reports | CyberLegal Assistant</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" />
+  </head>
+  <body class="page-body reports-page">
+    <div class="app-shell">
+      <aside class="sidebar">
+        <div class="brand-wrap">
+          <div class="brand-mark">C</div>
+          <div>
+            <p class="eyebrow">Academic Security Tool</p>
+            <h2>CyberLegal Assistant</h2>
+          </div>
+        </div>
+        <nav class="nav-menu">
+          <a class="nav-item" href="{{ url_for('dashboard') }}"><span aria-hidden="true">▦</span>Dashboard</a>
+          <a class="nav-item" href="{{ url_for('incident_report_page') }}"><span aria-hidden="true">＋</span>Incident Report</a>
+          <a class="nav-item active" href="{{ url_for('my_reports_page') }}"><span aria-hidden="true">▤</span>My Reports</a>
+          <a class="nav-item" href="{{ url_for('legal_guidance_page') }}"><span aria-hidden="true">§</span>Legal Guidance</a>
+          <a class="nav-item" href="{{ url_for('chat_history_page') }}"><span aria-hidden="true">◷</span>Chat History</a>
+          <a class="nav-item" href="{{ url_for('safety_help_page') }}"><span aria-hidden="true">⚠</span>Safety &amp; Help</a>
+          <a class="nav-item" href="{{ url_for('profile_page') }}"><span aria-hidden="true">●</span>Profile</a>
+          <a class="nav-item" href="{{ url_for('settings_page') }}"><span aria-hidden="true">⚙</span>Settings</a>
+        </nav>
+      </aside>
+
+      <main class="main-panel">
+        <header class="topbar">
+          <div>
+            <p class="eyebrow">Stored assessment records</p>
+            <h1>My Reports</h1>
+          </div>
+          <div class="topbar-actions">
+            <span class="user-chip">{{ username }}</span>
+            <a class="logout-link" href="{{ url_for('logout') }}">Logout</a>
+          </div>
+        </header>
+
+        <section class="panel list-panel">
+          <div class="panel-header"><h3>Saved incident reports</h3></div>
+          {% if reports %}
+            <div class="table-wrap">
+              <table>
+                <thead>
+                  <tr>
+                    <th>Report ID</th>
+                    <th>Category</th>
+                    <th>Confidence</th>
+                    <th>Date</th>
+                    <th>Status</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {% for report in reports %}
+                    <tr>
+                      <td>{{ report.report_ref or ('CLR-' ~ report.id) }}</td>
+                      <td>{{ report.detected_category }}</td>
+                      <td>{{ report.confidence }}%</td>
+                      <td>{{ report.created_at }}</td>
+                      <td>{{ report.status }}</td>
+                      <td><a href="{{ url_for('report_page', report_id=report.id) }}">View</a></td>
+                    </tr>
+                  {% endfor %}
+                </tbody>
+              </table>
+            </div>
+          {% else %}
+            <p>No incident reports have been created yet.</p>
+          {% endif %}
+        </section>
+      </main>
+    </div>
+  </body>
+</html>

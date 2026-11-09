@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Legal Guidance | CyberLegal Assistant</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" />
+  </head>
+  <body class="page-body legal-page">
+    <div class="app-shell">
+      <aside class="sidebar">
+        <div class="brand-wrap">
+          <div class="brand-mark">C</div>
+          <div>
+            <p class="eyebrow">Academic Security Tool</p>
+            <h2>CyberLegal Assistant</h2>
+          </div>
+        </div>
+        <nav class="nav-menu">
+          <a class="nav-item" href="{{ url_for('dashboard') }}"><span aria-hidden="true">▦</span>Dashboard</a>
+          <a class="nav-item" href="{{ url_for('incident_report_page') }}"><span aria-hidden="true">＋</span>Incident Report</a>
+          <a class="nav-item" href="{{ url_for('my_reports_page') }}"><span aria-hidden="true">▤</span>My Reports</a>
+          <a class="nav-item active" href="{{ url_for('legal_guidance_page') }}"><span aria-hidden="true">§</span>Legal Guidance</a>
+          <a class="nav-item" href="{{ url_for('chat_history_page') }}"><span aria-hidden="true">◷</span>Chat History</a>
+          <a class="nav-item" href="{{ url_for('safety_help_page') }}"><span aria-hidden="true">⚠</span>Safety &amp; Help</a>
+          <a class="nav-item" href="{{ url_for('profile_page') }}"><span aria-hidden="true">●</span>Profile</a>
+          <a class="nav-item" href="{{ url_for('settings_page') }}"><span aria-hidden="true">⚙</span>Settings</a>
+        </nav>
+      </aside>
+
+      <main class="main-panel">
+        <header class="topbar">
+          <div>
+            <p class="eyebrow">Reference material</p>
+            <h1>Legal Guidance</h1>
+          </div>
+          <div class="topbar-actions">
+            <span class="user-chip">{{ username }}</span>
+            <a class="logout-link" href="{{ url_for('logout') }}">Logout</a>
+          </div>
+        </header>
+
+        <section class="panel search-panel">
+          <div class="search-box-wrap">
+            <input type="text" id="legalSearch" placeholder="Search cyber law..." />
+          </div>
+        </section>
+
+        <section class="grid-legal">
+          {% for category in categories %}
+            <article class="panel legal-card" data-search="{{ category.category }} {{ category.description }} {{ category.incident_types|join(' ') }} {{ category.provisions|map(attribute='title')|join(' ') }} {{ category.evidence_to_preserve|join(' ') }}">
+              <div class="legal-card-heading">
+                <div>
+                  <p class="legal-kicker">Cyber incident category</p>
+                  <h3>{{ category.category }}</h3>
+                </div>
+                <span class="urgency-badge urgency-{{ category.urgency_level|lower|replace('-', '') }}">{{ category.urgency_level }} priority</span>
+              </div>
+              <p class="legal-description">{{ category.description }}</p>
+
+              <div class="legal-section">
+                <h4>Possible incident types</h4>
+                <ul class="legal-list">{% for item in category.incident_types %}<li>{{ item }}</li>{% endfor %}</ul>
+              </div>
+
+              <div class="legal-section">
+                <h4>Verified statutory provisions</h4>
+                <p>No section-specific provisions are currently verified in the local legal dataset. Applicability should be checked against current law and the complete facts.</p>
+              </div>
+
+              <div class="legal-section">
+                <h4>What the law means</h4>
+                <p>{{ category.general_legal_explanation }}</p>
+              </div>
+
+              <div class="legal-section">
+                <h4>Fact-specific legal review</h4>
+                <p>The reported facts may match this category, but legal classification depends on the complete evidence and current law. This page does not make a legal determination.</p>
+              </div>
+
+              <div class="legal-section evidence-section">
+                <h4>Evidence to preserve</h4>
+                <ul class="legal-list">{% for item in category.evidence_to_preserve %}<li>{{ item }}</li>{% endfor %}</ul>
+                <div class="evidence-record"><strong>Evidence Protection</strong><p>{{ category.evidence_record_note }}</p><div class="evidence-meta"><span>Evidence ID: EV-________</span><span>SHA-256: pending</span><span>Status: Not recorded</span></div></div>
+              </div>
+
+              <div class="legal-section urgency-section">
+                <h4>Immediate response priority: {{ category.urgency_level }}</h4>
+                <p>{{ category.urgency_reason }}</p>
+                <ol class="legal-list">{% for item in category.immediate_actions %}<li>{{ item }}</li>{% endfor %}</ol>
+              </div>
+
+              <div class="legal-columns">
+                <div class="legal-section"><h4>Evidence: do</h4><ul class="legal-list">{% for item in category.do_evidence %}<li>{{ item }}</li>{% endfor %}</ul></div>
+                <div class="legal-section"><h4>Evidence: don't</h4><ul class="legal-list">{% for item in category.dont_evidence %}<li>{{ item }}</li>{% endfor %}</ul></div>
+              </div>
+
+              <div class="legal-section"><h4>Reporting guidance</h4><ul class="legal-list">{% for item in category.reporting_guidance %}<li>{{ item }}</li>{% endfor %}</ul></div>
+              <p class="legal-note"><strong>Legal note:</strong> {{ category.disclaimer }}</p>
+            </article>
+          {% endfor %}
+        </section>
+      </main>
+    </div>
+    <script src="{{ url_for('static', filename='js/legal.js') }}"></script>
+  </body>
+</html>
